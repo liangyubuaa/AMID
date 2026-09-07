@@ -44,5 +44,5 @@ Default values are defined in `train.py`.
 ## Reference
 
 ```text
-Package A
+
 ```
