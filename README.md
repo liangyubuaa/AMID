@@ -13,18 +13,8 @@ Multimodal sentiment analysis aims to infer sentiment polarity and intensity fro
 - `train.py`: MOSEI data loading, training loop, validation/test evaluation, and metric logging.
 - `model/model.py`: model assembly and forward path. The public class is `ModelA`.
 - `model/units.py`: the `UnitA`--`UnitJ` blocks and the final three-path operation.
-- `assets/`: paper figures retained as reference artifacts; they are not an executable interface contract.
 
-## Model Usage
 
-The published directory is source-only and does not contain the large PKL/BERT assets. Run the complete package from the sibling `源码\\源码` directory:
-
-```powershell
-python .\\code\\train.py `
-  --pkl .\\pkl\\data_a.pkl `
-  --bert_dir .\\bert-base-uncased `
-  --output_dir .\\outputs
-```
 
 ## Parameters
 
