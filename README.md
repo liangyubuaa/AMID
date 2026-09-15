@@ -148,3 +148,34 @@ Defaults below are taken from [`train.py`](./train.py) and its arguments passed 
 | Early stopping patience | `--early_stop_patience` | `0` (disabled) |
 
 ## Reference
+
+## Appendix A. Analysis Fields for the Explanation Agents
+
+### Audio Explanation Agent
+
+| Analysis part | Covered content |
+| :--- | :--- |
+| *Prosodic characteristics* | Pitch, speaking rate, loudness, rhythm, pauses, speech flow, and temporal intensity. |
+| *Voice quality and vocal texture* | Timbre, vocal stability, breath, tension, fatigue, and restrained or unstable delivery. |
+| *Non-verbal and paralinguistic events* | Laughter type, fillers, hums, scoffs, gasps, crying cues, sarcasm, discomfort, or uncertainty. |
+| *Recording quality and acoustic reliability* | Noise, reverberation, distance, clipping, low volume, clarity, and reliability of acoustic cues. |
+| *Explicit vocal modality* | Primary or mixed affect, emotional transitions, authenticity, masking, anxiety, confidence, or suppression when supported. |
+| *Ambiguity and reliability* | Uncertainty, confidence of major interpretations, and whether evidence is insufficient or conflicting. |
+
+### Visual Explanation Agent
+
+| Analysis part | Covered content |
+| :--- | :--- |
+| *Scene and situational context* | Emotion-relevant background, environment, social setting, and scene tone. |
+| *Interaction context* | Whether the speaker is reacting, listening, performing, arguing, waiting, or acting alone. |
+| *Facial expression cues* | Smile, frown, brow, eyes, tears, mouth tension, flat expression, and expression strength. |
+| *Gaze, eye behavior, and head movement* | Eye contact/aversion, downward gaze, eye rolling, staring, nodding, shaking, turning, head motion. |
+| *Body posture and global body state* | Upright or slumped posture, body orientation, engagement, avoidance, fatigue, tension, confidence, or uncertainty. |
+| *Hand, arm, and gesture cues* | Waving, pointing, shrugging, arm crossing, open palms, emphatic, restrained, repetitive, abrupt, or weak gestures. |
+| *Self-adaptor cues* | Face touching, hand rubbing, posture adjustment, mouth covering, visible regulation behaviors. |
+| *Temporal emotional dynamics* | Changes in expression, posture, gesture, tension, relaxation, withdrawal, or stability over time. |
+| *Visual consistency, conflict, or ambiguity* | Agreement, mixed evidence, or contradictions among facial, gaze, posture, gesture, and scene cues. |
+| *Visual affective summary* | A compact visual-only tendency summary without replacing the final multimodal prediction. |
+| *Uncertainty and visibility limitations* | Low resolution, occlusion, lighting, short duration, weak evidence, and speculation limits. |
+
+**Required analysis fields for the Explanation Agents.** The table lists the audio and visual parts that the agents analyze and the evidence content covered by each part.
