@@ -28,7 +28,7 @@
 
 ![AMID architecture: Explanation Agents, Analysis Agent, Explanation Attention, EATS, and Agent Routed MOE](./assets/amid_architecture.png)
 
-*Framework overview.* The Explanation Agents generate modality-specific audio and visual reports, while the Analysis Agent jointly reads the tri-modal inputs and these reports to produce a Final Description and Fusion Weight. Next, Explanation Attention uses cue tokens encoded by BERT as queries over modality features, yielding attention maps and aligned tokens derived from features. The Final Description then reweights the aligned audio and visual tokens, after which EATS performs directed synchronization using temporal anchors and reliability scores derived from attention. Finally, Agent Routed MOE fuses the three modality representations for sentiment prediction.
+*Framework overview.* Audio and video follow the same data flow: each modality is processed by its Explanation Agent to obtain modality-specific explanations, which are encoded by BERT and connected with modality features through Explanation Attention to obtain token attention $\alpha_{ij}$. The Analysis Agent further receives the audio and visual explanations and tri-modal inputs, then outputs Final Description and Fusion Weight. Final Description guides Token Reweight, while Fusion Weight is used by the final Agent Routed MOE module. The EATS block shows the main alignment case: $\alpha_{ij}$ is converted into $\operatorname{Anchor}(i)$, so cross-modal tokens with nearby anchors enhance each other. Bold italic phrases mark salient affective cues in the example explanations and reweighted tokens. The visual modality is processed to protect privacy. The horizontal arrows, shown as gray lines in the legend, denote the modal flow between processing stages; colored outlines identify modality features and explanation tokens, while overlapping outlines denote cross-modal enhanced tokens.
 
 ## Abstract
 
@@ -78,6 +78,8 @@ The script supports CPU, CUDA, and Ascend NPU devices. NPU execution additionall
 ### Prepare the Inputs
 
 Training uses precomputed modality features and agent outputs.
+
+The included `train.py` entry point uses the MOSEI configuration and MOSI/MOSEI classification metrics. The CH-SIMS results above are reported from the paper; reproducing them requires CH-SIMS-specific classification thresholds and training settings.
 
 Prepare a local BERT checkpoint directory and a PKL containing `train`, `valid`, and `test` splits. Each split must provide:
 
@@ -129,7 +131,7 @@ Implementation details of AMID on MOSEI, as reported in the paper.
 
 ## Reference
 
-Yu Liang, Liwen Tian, Tianhao Peng, Jiawei Wu, Heng Sun, Yuqing Ma, Xiyuan Hu, and Wenjun Wu. *AMID: Explanation and Temporal Alignment with Agent Routed Mixture-of-Experts for Multimodal Sentiment Analysis*.
+Yu Liang, Liwen Tian, Tianhao Peng, Jiawei Wu, Heng Sun, Guoping He, Yuqing Ma, Xiyuan Hu, and Wenjun Wu. *AMID: Explanation and Temporal Alignment with Agent Routed Mixture-of-Experts for Multimodal Sentiment Analysis*.
 
 ## Appendix A. Analysis Fields for the Explanation Agents
 
